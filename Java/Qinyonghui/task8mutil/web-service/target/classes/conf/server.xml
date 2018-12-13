@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--registryPort(网络端口)-->
+    <!--<property name = "registryPort" value ="10002"/>-->
+    <!--servicePort(随机端口),数据端口会在程序启动的时候随机生成。-->
+    <bean id="registry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean">
+        <property name="port" value="10001"/>
+    </bean>
+    <!-- 配置RMI远程接口 studentService-->
+    <bean name = "studentServiceImpl" class = "com.jnshu.serviceimpl.StudentServiceImpl"/>
+
+    <bean name = "studentService" class = "org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="studentServiceImpl"/>
+        <property name="serviceName" value ="studentService"/>
+        <property name="serviceInterface" value="com.jnshu.service.StudentService"/>
+        <property name="servicePort" value="10086"/>
+        <property name = "registry" ref ="registry"/>
+    </bean>
+
+    <bean name = "userServiceImpl" class="com.jnshu.serviceimpl.UserServiceImpl"/>
+
+    <bean name = "userService" class = "org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="userServiceImpl"/>
+        <property name="serviceName" value ="userService"/>
+        <property name="serviceInterface" value="com.jnshu.service.UserService"/>
+        <property name="servicePort" value="10086"/>
+        <property name = "registry" ref ="registry"/>
+    </bean>
+    <bean name ="professionServiceImpl" class = "com.jnshu.serviceimpl.ProfessionServiceImpl"/>
+
+    <bean name ="professionService" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="professionServiceImpl"/>
+        <property name="serviceName" value = "professionService"/>
+        <property name="serviceInterface" value="com.jnshu.service.ProfessionService"/>
+        <property name="servicePort" value="10086"/>
+        <property name = "registry" ref ="registry"/>
+    </bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sca="http://www.springframework.org/schema/sca"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/sca
+      http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+
+    <bean id = "studentService" class = "com.jnshu.serviceimpl.StudentServiceImpl"/>
+    <bean id = "userService" class="com.jnshu.serviceimpl.UserServiceImpl"/>
+    <bean id ="professionService" class = "com.jnshu.serviceimpl.ProfessionServiceImpl"/>
+
+    <!--  type里是service接口路径，target里是实现类在ioc容器中的id，就是上面bean的id -->
+    <!--<sca:service name="studentServiceA" type="com.jnshu.service.StudentService" target="studentService"/>-->
+    <!--<sca:service name="userServiceA" type="com.jnshu.service.UserService" target="userService"/>-->
+    <!--<sca:service name="professionServiceA" type="com.jnshu.service.ProfessionService" target="professionService"/>-->
+
+    <sca:service name="studentServiceB" type="com.jnshu.service.StudentService" target="studentService"/>
+    <sca:service name="userServiceB" type="com.jnshu.service.UserService" target="userService"/>
+    <sca:service name="professionServiceB" type="com.jnshu.service.ProfessionService" target="professionService"/>
+
+
+</beans>

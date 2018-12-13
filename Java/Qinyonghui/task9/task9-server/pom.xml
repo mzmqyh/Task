@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>task9</artifactId>
+        <groupId>com.jnshu</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>task9-server</artifactId>
+    <packaging>war</packaging>
+    <name>task9-server</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!--tuscany需要的jar包-->
+        <dependency>
+            <groupId>org.apache.tuscany.sca</groupId>
+            <artifactId>tuscany-sca-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tuscany.sca</groupId>
+            <artifactId>tuscany-base-runtime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tuscany.sca.aggregation</groupId>
+            <artifactId>tuscany-binding-rmi-runtime-aggregation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tuscany.sca.aggregation</groupId>
+            <artifactId>tuscany-binding-ws-runtime-axis2-aggregation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tuscany.sca</groupId>
+            <artifactId>tuscany-implementation-spring-runtime</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>com.qcloud</groupId>
+        <artifactId>cos_api</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>com.qcloud</groupId>
+        <artifactId>qcloud-java-sdk</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload&ndash;&gt;-->
+        <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/commons-io/commons-io&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>com.aliyun.oss</groupId>
+        <artifactId>aliyun-sdk-oss</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+        </dependency>
+
+        <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;使用谷歌的protostuff进行序列化&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;https://mvnrepository.com/artifact/io.protostuff/protostuff-core&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>io.protostuff</groupId>
+        <artifactId>protostuff-core</artifactId>
+        <scope>test</scope>
+        </dependency>
+        <dependency>
+        <groupId>io.protostuff</groupId>
+        <artifactId>protostuff-runtime</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.objenesis/objenesis &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+
+        <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash; spring redis数据支持包 spring-data-redis 2.0后版本只支持spring5和spring boot2 &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 &ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <!--&lt;!&ndash;&lt;!&ndash; Hack：确保commons-logging的jar包不被引入，否则将和jcl-over-slf4j冲突 &ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <scope>provided</scope>
+        </dependency>
+
+        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core &ndash;&gt;&ndash;&gt;-->
+        <dependency>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-core</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>tk.mybatis</groupId>
+        <artifactId>mapper</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;&lt;!&ndash;同时有一项必要依赖项：项目依赖于JPA的注解,需要添加Maven依赖:&ndash;&gt;&ndash;&gt;-->
+
+        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;&ndash;&gt;-->
+
+        <dependency>
+        <groupId>com.danga</groupId>
+        <artifactId>java-memcached</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>commons-pool</groupId>
+        <artifactId>commons-pool</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>  <!--对Spring 对JDBC 数据访问进行封装的所有类-->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <!--https://mvnrepository.com/artifact/org.springframework/spring-test-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <!-- 导入dbcp的jar包，用来在spring-mybatis.xml中配置数据库 -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <!--mybatis-spring整合包，这样就可以通过spring配置bean的方式进行mybatis配置了，不然需要单独使用mybatis的配置-->
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>aspectwerkz</groupId>
+        <artifactId>aspectwerkz-core</artifactId>
+        </dependency>
+        <!--是AOP联盟的API包,里面包含了针对面向切面的接口。 通常Spring等其它具备动态织入功能的框架依赖此包。-->
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>task9-server</finalName>
+        <!-- <pluginManagement>--><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <!--  </pluginManagement>-->
+    </build>
+</project>

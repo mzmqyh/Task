@@ -1,0 +1,40 @@
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+
+           xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.1"
+
+           targetNamespace="http://com.jnshu.service"
+
+           name="ServiceComponent">
+
+    <component name="StuedntServiceComponent">
+        <implementation.spring location="applicationContext.xml"/>
+        <!--这里的name属性要和Spring配置文件中的<sca:service  里的name属性保持一致 。-->
+        <!--<service name="studentServiceA">-->
+            <!--<interface.java interface="com.jnshu.service.StudentService"/>-->
+            <!--<tuscany:binding.rmi uri="rmi://127.0.0.1:8816/studentService"/>-->
+        <!--</service>-->
+        <!--&lt;!&ndash;xmlns:scallop="http://scallop/xmlns/sca/1.0"  &ndash;&gt;-->
+        <!--<service name="userServiceA">-->
+            <!--<interface.java interface="com.jnshu.service.UserService"/>-->
+            <!--<tuscany:binding.rmi uri="rmi://127.0.0.1:8816/userService"/>-->
+        <!--</service>-->
+        <!--<service name="professionServiceA">-->
+            <!--<interface.java interface="com.jnshu.service.ProfessionService"/>-->
+            <!--<tuscany:binding.rmi uri="rmi://127.0.0.1:8816/professionService"/>-->
+        <!--</service>-->
+
+        <service name="studentServiceB">
+            <interface.java interface="com.jnshu.service.StudentService"/>
+            <tuscany:binding.rmi uri="rmi://127.0.0.1:8817/studentService"/>
+        </service>
+        <!--xmlns:scallop="http://scallop/xmlns/sca/1.0"  -->
+        <service name="userServiceB">
+            <interface.java interface="com.jnshu.service.UserService"/>
+            <tuscany:binding.rmi uri="rmi://127.0.0.1:8817/userService"/>
+        </service>
+        <service name="professionServiceB">
+            <interface.java interface="com.jnshu.service.ProfessionService"/>
+            <tuscany:binding.rmi uri="rmi://127.0.0.1:8817/professionService"/>
+        </service>
+    </component>
+</composite>

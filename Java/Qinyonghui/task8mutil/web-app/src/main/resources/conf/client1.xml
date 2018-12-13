@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="studentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="lookupStubOnStartup" value="false"/>
+        <property name="refreshStubOnConnectFailure" value="true"/> <!--//表示是否连接出错时自动重连-->
+        <property name="serviceUrl" value="rmi://106.15.203.211:10001/studentService"/>
+        <property name="serviceInterface" value="com.jnshu.service.StudentService"/>
+    </bean>
+    <bean name="userService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://106.15.203.211:10001/userService"/>
+        <property name="lookupStubOnStartup" value="false"/>
+        <property name="refreshStubOnConnectFailure" value="true"/> <!--//表示是否连接出错时自动重连-->
+        <property name="serviceInterface" value="com.jnshu.service.UserService"/>
+    </bean>
+
+    <bean name="professionService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://106.15.203.211:10001/professionService"/>
+      <!--  //不在容器启动的时候创建与Server端的连接-->
+        <property name="lookupStubOnStartup" value="false"/>
+        <property name="refreshStubOnConnectFailure" value="true"/> <!--//表示是否连接出错时自动重连-->
+        <property name="serviceInterface" value="com.jnshu.service.ProfessionService"/>
+    </bean>
+</beans>
